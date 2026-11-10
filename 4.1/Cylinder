@@ -1,0 +1,49 @@
+public class Cylinder extends Circle {
+    private double height; // Thêm thuộc tính height
+
+    // Constructors
+    public Cylinder() {
+        super(); // Gọi default constructor của Circle
+        this.height = 1.0;
+    }
+
+    public Cylinder(double height) {
+        super(); // Gọi default constructor của Circle
+        this.height = height;
+    }
+
+    public Cylinder(double radius, double height) {
+        super(radius); // Gọi constructor Circle(double radius)
+        this.height = height;
+    }
+
+    public Cylinder(double radius, double height, String color) {
+        super(radius, color); // Gọi constructor Circle(double radius, String color)
+        this.height = height;
+    }
+
+    // Getters and Setters
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    // Tính thể tích hình trụ (Volume = Area of base * height)
+    public double getVolume() {
+        return getArea() * height;
+    }
+
+    // Ghi đè phương thức getArea() để tính diện tích toàn phần của hình trụ (surface area)
+    @Override
+    public double getArea() {
+        return 2 * Math.PI * getRadius() * height + 2 * super.getArea();
+    }
+
+    @Override
+    public String toString() {
+        return "Cylinder[" + super.toString() + ",height=" + height + "]";
+    }
+}
